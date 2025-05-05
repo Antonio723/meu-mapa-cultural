@@ -403,7 +403,7 @@ function App() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-        {pontosCulturais.map((ponto, idx) => (
+        {pontosCulturais.map((ponto) => (
           <Marker position={[ponto.lat, ponto.lon]} icon={defaultIcon}>
             <Popup>
               <strong>{ponto.nome}</strong><br />
