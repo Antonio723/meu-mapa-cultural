@@ -4,12 +4,14 @@ import L from  'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
 
-// Corrige ícones do Leaflet no React
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+const defaultIcon = new L.Icon({
   iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png"
+  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
 });
 
 
@@ -239,7 +241,158 @@ function App() {
       lon: -46.6426,
       cidade: "São Paulo"
     },
-    
+    {
+      nome: "Centro Cultural Adamastor",
+      cidade: "Guarulhos",
+      tipo: "Centro Cultural",
+      descricao: "Oferece atividades culturais, exposições, teatro e biblioteca pública.",
+      lat: -23.46278,
+      lon: -46.53333
+    },
+    {
+      nome: "SESC Santo André",
+      cidade: "Santo André",
+      tipo: "Centro Cultural",
+      descricao: "Espaço com programação variada, incluindo teatro, música, esportes e educação.",
+      lat: -23.6466,
+      lon: -46.5386,
+    },
+    {
+      nome: "Fábrica de Cultura Vila Nova Cachoeirinha",
+      cidade: "São Paulo",
+      tipo: "Centro Cultural",
+      descricao: "Oficinas de arte, teatro, música, dança e audiovisual para jovens da região.",
+      lat: -23.4871,
+      lon: -46.615
+    },
+    {
+      nome: "Casa de Cultura de Itaquera",
+      cidade: "São Paulo",
+      tipo: "Casa de Cultura",
+      descricao: "Espaço dedicado a apresentações culturais e oficinas gratuitas.",
+      lat: -23.5024,
+      lon: -46.4752
+    },
+    {
+      nome: "Teatro Municipal de Osasco",
+      cidade: "Osasco",
+      tipo: "Teatro",
+      descricao: "Recebe espetáculos teatrais, musicais e eventos públicos diversos.",
+      lat: -23.5322,
+      lon: -46.7911
+    },
+    {
+      nome: "Biblioteca Monteiro Lobato",
+      cidade: "São Bernardo do Campo",
+      tipo: "Biblioteca",
+      descricao: "Acervo diversificado e espaço para contação de histórias e eventos literários.",
+      lat: -23.6975,
+      lon: -46.5564
+    },
+    {
+      nome: "Museu do Imigrante Nordestino",
+      cidade: "Guarulhos",
+      tipo: "Museu",
+      descricao: "Valoriza a cultura nordestina e sua influência na cidade.",
+      lat: -23.445,
+      lon: -46.5358
+    },
+    {
+      nome: "Ponto de Cultura Samba Autêntico",
+      cidade: "São Paulo",
+      tipo: "Ponto de Cultura",
+      descricao: "Espaço dedicado ao samba tradicional com rodas de música e oficinas.",
+      lat: -23.5377,
+      lon: -46.6381
+    },
+    {
+      nome: "Teatro Cacilda Becker",
+      cidade: "São Paulo",
+      tipo: "Teatro",
+      descricao: "Importante palco para produções de teatro experimental e dança.",
+      lat: -23.5763,
+      lon: -46.6333
+    },
+    {
+      nome: "Casa de Cultura Salvador Ligabue",
+      cidade: "São Paulo (Freguesia do Ó)",
+      tipo: "Casa de Cultura",
+      descricao: "Espaço histórico com exposições de arte e eventos culturais.",
+      lat: -23.5278,
+      lon: -46.6779
+    },
+    {
+      nome: "Centro de Cultura Popular de Diadema",
+      cidade: "Diadema",
+      tipo: "Centro Cultural",
+      descricao: "Espaço de valorização da cultura popular, com foco em danças e manifestações folclóricas.",
+      lat: -23.6844,
+      lon: -46.5764
+    },
+    {
+      nome: "SESC Osasco",
+      cidade: "Osasco",
+      tipo: "Centro Cultural",
+      descricao: "Programação cultural diversificada com teatro, música, exposições e esportes.",
+      lat: -23.5329,
+      lon: -46.7917
+    },
+    {
+      nome: "Fábrica de Cultura Capão Redondo",
+      cidade: "São Paulo",
+      tipo: "Centro Cultural",
+      descricao: "Centro de formação e difusão cultural com foco em jovens das periferias.",
+      lat: -23.705,
+      lon: -46.7858
+    },
+    {
+      nome: "Centro Cultural de São Caetano do Sul",
+      cidade: "São Caetano do Sul",
+      tipo: "Centro Cultural",
+      descricao: "Oficinas, biblioteca, exposições e eventos culturais gratuitos.",
+      lat: -23.6283,
+      lon: -46.5647
+    },
+    {
+      nome: "Museu de Arte Contemporânea de Santo André",
+      cidade: "Santo André",
+      tipo: "Museu",
+      descricao: "Acervo de arte moderna e contemporânea brasileira.",
+      lat: -23.6691,
+      lon: -46.5334
+    },
+    {
+      nome: "Teatro Elis Regina",
+      cidade: "Guarulhos",
+      tipo: "Teatro",
+      descricao: "Palco de apresentações de música, dança e artes cênicas.",
+      lat: -23.4311,
+      lon: -46.5335
+    },
+    {
+      nome: "Biblioteca Benedito Sérgio de Oliveira",
+      cidade: "Carapicuíba",
+      tipo: "Biblioteca",
+      descricao: "Espaço público com acervo literário e atividades de incentivo à leitura.",
+      lat: -23.4977,
+      lon: -46.8344
+    },
+    {
+      nome: "Ponto de Cultura Afro Kaonga",
+      cidade: "Osasco",
+      tipo: "Ponto de Cultura",
+      descricao: "Promove a cultura afro-brasileira por meio de oficinas e eventos.",
+      lat: -23.5322,
+      lon: -46.7911
+    },
+    {
+      nome: "Centro de Tradições Nordestinas – CTN",
+      cidade: "São Paulo",
+      tipo: "Centro Cultural",
+      descricao: "Centro dedicado à cultura nordestina com gastronomia, música e eventos.",
+      lat: -23.5506,
+      lon: -46.6119
+    }
   ];
 
   return (
@@ -251,7 +404,7 @@ function App() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         {pontosCulturais.map((ponto, idx) => (
-          <Marker key={idx} position={[ponto.lat, ponto.lon]}>
+          <Marker position={[ponto.lat, ponto.lon]} icon={defaultIcon}>
             <Popup>
               <strong>{ponto.nome}</strong><br />
               {ponto.descricao}
